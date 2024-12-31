@@ -1,10 +1,21 @@
+import { useContext, useEffect, useRef, useState } from "react";
 import { SORT_OPTIONS } from "./constans";
-import { useDropDown } from "./hooks/useDropDown";
 import { SortOption } from "./SortOption";
+import { listenForOutsideClicks } from "../../../utilities/listenForOutsideClick";
+import { FiltersContext } from "../../../context";
 
 export const SortBy = () => {
 
-  const { dropDownRef, isOpen, value, handleOpen, handleValue } = useDropDown();
+  const { handleValue, handleOpen, sortOption: value, isOpen } = useContext( FiltersContext );
+  const dropDownRef = useRef<HTMLDivElement | null>( null );
+  const [ listening, setListening ] = useState( false );
+
+  useEffect( listenForOutsideClicks( 
+    listening, 
+    setListening, 
+    dropDownRef, 
+    handleOpen, 
+  ), []);
 
   return (
     <>

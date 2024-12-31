@@ -1,15 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { REGIONS_OPTIONS } from "./constans";
 import { RegionOptions } from "./RegionOptions";
+import { FiltersContext } from "../../../context";
 
 export const FilterRegion = () => {
 
-  const [ selectedRegions, setSelectedRegions ] = useState<string[]>( [] );
-
-  const handleSelectRegions = ( region: string ) => {
-    if ( selectedRegions.includes( region )) return setSelectedRegions( selectedRegions.filter( regionOut => region !== regionOut ));
-    setSelectedRegions( [...selectedRegions, region] );
-  }
+  const { regionOption, handleSelectRegions } = useContext( FiltersContext );  
 
   return (
     <>
@@ -20,7 +16,7 @@ export const FilterRegion = () => {
               <RegionOptions
                 key={ region }
                 region={ region }
-                isSelected={ selectedRegions.includes( region ) }
+                isSelected={ regionOption.includes( region ) }
                 selectedRegion={ handleSelectRegions }
               />
             ))
