@@ -1,1 +1,1 @@
-export const SORT_OPTIONS = ['Population', 'Area', 'Alphabetic', 'Name'];
+export const SORT_OPTIONS = ['Population', 'Area', 'Alphabetic'];

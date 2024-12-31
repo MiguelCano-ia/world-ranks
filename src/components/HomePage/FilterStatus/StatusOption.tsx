@@ -13,7 +13,6 @@ export const StatusOption = ({ option, isSelected, onClick }: Props) => {
   return (
     <div className="flex items-center gap-2">
       <div
-        key={ option }
         onClick={ onClick }
         className={ isSelected ? styleSelected : styleNotSelected }
       > 
