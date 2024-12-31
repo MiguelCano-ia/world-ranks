@@ -4,10 +4,12 @@ import { STATUS_FILTER_OPTIONS } from "./constans";
 
 export const FilterStatus = () => {
 
-  const [ status, setStatus ] = useState( 'Member of the United Nations' );
+  const [ status, setStatus ] = useState<string[]>( [] );
 
   const onChangeStatus = ( option: string ) => {
-    setStatus( option );
+    if ( status.includes( option )) return setStatus( [] );
+    if ( !status.includes( option ) && status.length === 1 ) return setStatus( STATUS_FILTER_OPTIONS.filter( status => status === option) );
+    setStatus([ ...status, option ]);
   }
 
   return (
@@ -19,7 +21,7 @@ export const FilterStatus = () => {
               <StatusOption 
                 key={ option }
                 option={ option }
-                isSelected={ status === option }
+                isSelected={ status.includes( option ) }
                 onClick={ () => onChangeStatus( option )}
               />
             ))

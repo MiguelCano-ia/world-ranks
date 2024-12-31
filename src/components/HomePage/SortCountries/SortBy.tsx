@@ -1,6 +1,6 @@
-import { useDropDown } from "../../hooks";
-
-const sortBy = ['Population', 'Area', 'Alphabetic', 'Name'];
+import { SORT_OPTIONS } from "./constans";
+import { useDropDown } from "./hooks/useDropDown";
+import { SortOption } from "./SortOption";
 
 export const SortBy = () => {
 
@@ -18,14 +18,12 @@ export const SortBy = () => {
             <div className="bg-secondary-900">
               <ul className="flex flex-col gap-2">
                 {
-                  sortBy.map( type => (
-                    <li 
-                      key={ type } 
-                      className="hover:bg-secondary-700 font-sans font-medium text-body text-secondary-100 p-2 rounded-lg cursor-pointer transition-colors duration-200 border-b-2 border-secondary-700"
-                      onClick={ () => handleValue( type ) }
-                    >
-                      { type }
-                    </li>
+                  SORT_OPTIONS.map( option => (
+                    <SortOption 
+                      key={ option }
+                      option={ option }
+                      handleValue={ handleValue }
+                    />
                   ))
                 }
               </ul>

@@ -1,4 +1,3 @@
-
 interface Props {
   option: string,
   isSelected: boolean,

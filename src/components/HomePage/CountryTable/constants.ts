@@ -1,0 +1,1 @@
+export const THDEAD_NAME = ['Flag', 'Name', 'Population', 'Area(km²)', 'Region'];

@@ -1,4 +1,5 @@
 export * from './SearchCountry';
-export * from './SortBy';
+export * from './SortCountries';
 export * from './FilterRegion';
 export * from './FilterStatus';
+export * from './CountryTable';

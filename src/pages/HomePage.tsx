@@ -1,4 +1,4 @@
-import { FilterRegion, FilterStatus, SearchCountry, SortBy } from "../components";
+import { CountryTable, FilterRegion, FilterStatus, SearchCountry, SortBy,  } from "../components";
 import { WorldRanksLayout } from "../layout/WorldRanksLayout";
 
 export const HomePage = () => {
@@ -17,8 +17,8 @@ export const HomePage = () => {
             <FilterStatus />
           </div>
         </div>
-        <div className="basis-4/5 bg-white">
-          
+        <div className="basis-4/5 bg-secondary-900">
+          <CountryTable />
         </div>
       </div>
     </WorldRanksLayout>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { listenForOutsideClicks } from "../utilities/listenForOutsideClick";
+import { listenForOutsideClicks } from "../../../../utilities/listenForOutsideClick";
 
 export const useDropDown = () => {
 
@@ -19,8 +19,8 @@ export const useDropDown = () => {
     setIsOpen( !isOpen );
   }
   
-  const handleValue = ( type: string ) => {
-    setValue( type );
+  const handleValue = ( option: string ) => {
+    setValue( option );
     setIsOpen( false );
   }
 

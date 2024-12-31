@@ -1,6 +1,6 @@
 export const SearchCountry = () => {
   return (
-    <div className="flex justify-between items-center max-sm:flex-col max-sm:gap-3">
+    <div className="flex justify-between items-center max-md:flex-col max-md:gap-3">
       <p className="font-sans text-secondary-300 text-heading-sm font-semibold">Found 234 countries</p>
       <form className="flex items-center bg-secondary-700 rounded-lg p-2 gap-2">
         <div>
