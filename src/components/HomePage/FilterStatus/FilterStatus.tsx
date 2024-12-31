@@ -1,16 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { StatusOption } from "./StatusOption";
 import { STATUS_FILTER_OPTIONS } from "./constans";
+import { FiltersContext } from "../../../context/FiltersContext";
 
 export const FilterStatus = () => {
 
-  const [ status, setStatus ] = useState<string[]>( [] );
-
-  const onChangeStatus = ( option: string ) => {
-    if ( status.includes( option )) return setStatus( [] );
-    if ( !status.includes( option ) && status.length === 1 ) return setStatus( STATUS_FILTER_OPTIONS.filter( status => status === option) );
-    setStatus([ ...status, option ]);
-  }
+  const { statusOption, onChangeStatus } = useContext( FiltersContext );
 
   return (
     <>
@@ -21,7 +16,7 @@ export const FilterStatus = () => {
               <StatusOption 
                 key={ option }
                 option={ option }
-                isSelected={ status.includes( option ) }
+                isSelected={ statusOption.includes( option ) }
                 onClick={ () => onChangeStatus( option )}
               />
             ))

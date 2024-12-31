@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getCountries } from "../../../helpers/getCountries"
 import { THDEAD_NAME } from "./constants"
 import { CountryInfo } from "./CountryInfo";
 import { Country } from "../../../interfaces/country.interface";
+import { FiltersContext } from "../../../context";
 
 export const CountryTable = () => {
 
+  const { sortOption } = useContext( FiltersContext );
   const [ countries, setcountries ] = useState<Country[]>( [] )
 
-  const getAllCountries = async ( ) => {
-    const allCountries = await getCountries( 'Alphabetic' );
+  const getAllCountries = async ( sortOption: string ) => {
+    const allCountries = await getCountries( sortOption );
     setcountries( allCountries );
   }
 
   useEffect( () => {
-    getAllCountries( );
-  }, [ ])
+    getAllCountries( sortOption );
+  }, [ sortOption ]);
   
 
   return (
