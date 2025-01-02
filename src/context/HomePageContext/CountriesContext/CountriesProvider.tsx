@@ -11,8 +11,7 @@ export const CountriesProvider = ({ children }: Props) => {
   const [ isLoading, setIsLoading ] = useState( false );
   const [ countries, setCountries ] = useState<Country[]>( [] );
 
-  const lengthCountries = useMemo(() => countries.length, [ countries ])
-
+  const lengthCountries = useMemo(() => countries.length, [ countries ]);
 
   return (
     <CountriesContext.Provider value={{ lengthCountries, isLoading, countries, setCountries, setIsLoading }}>
