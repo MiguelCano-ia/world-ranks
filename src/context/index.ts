@@ -1,4 +1,1 @@
-export * from './FiltersContext';
-export * from './FiltersProvider';
-export * from './filtersReducer';
-export * from './types';
+export * from './HomePageContext';

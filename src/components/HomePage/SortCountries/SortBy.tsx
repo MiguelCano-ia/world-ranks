@@ -1,8 +1,7 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { SORT_OPTIONS } from "./constans";
-import { SortOption } from "./SortOption";
-import { listenForOutsideClicks } from "../../../utilities/listenForOutsideClick";
 import { FiltersContext } from "../../../context";
+import { listenForOutsideClicks, SORT_OPTIONS } from "../../../utilities";
+import { SortOption } from "./SortOption";
+import { useContext, useEffect, useRef, useState } from "react";
 
 export const SortBy = () => {
 

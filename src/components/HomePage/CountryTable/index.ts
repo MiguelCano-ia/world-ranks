@@ -1,1 +1,1 @@
-export * from './CountryTable';
+export * from './CountryList';

@@ -1,4 +1,4 @@
-export * from './SearchCountry';
+export * from './SearchResults';
 export * from './SortCountries';
 export * from './FilterRegion';
 export * from './FilterStatus';

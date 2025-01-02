@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { StatusOption } from "./StatusOption";
-import { STATUS_FILTER_OPTIONS } from "./constans";
-import { FiltersContext } from "../../../context/FiltersContext";
+import { STATUS_FILTER_OPTIONS } from "../../../utilities";
+import { FiltersContext } from "../../../context/HomePageContext/FiltersContext/FiltersContext";
 
 export const FilterStatus = () => {
 

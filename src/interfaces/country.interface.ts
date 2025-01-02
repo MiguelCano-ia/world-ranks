@@ -4,6 +4,8 @@ export interface Country {
   region:     Region;
   area:       number;
   population: number;
+  independent: boolean;
+  unMember: boolean,
 }
 
 export interface Flags {

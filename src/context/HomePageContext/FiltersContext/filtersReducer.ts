@@ -1,4 +1,4 @@
-import { types } from "./";
+import { types } from ".";
 
 interface Filters {
   sortOption: string,
@@ -34,21 +34,13 @@ export const filtersReducer = ( state: Filters, action: Action ) => {
       if ( state.statusOption.includes( option ) ) {
         return { 
           ...state, 
-          statusOption: [] 
-        };
-      }
-
-      if ( state.statusOption.length === 1 ) {
-        return { 
-          ...state, 
-          statusOption: [ option ] 
+          statusOption: state.statusOption.filter( opOut => opOut !== option), 
         };
       }
 
       return { 
         ...state, 
-        statusOption: [ ...state.statusOption, option ] 
-      }
+        statusOption: [ ...state.statusOption, option ],      }
     }
     case types.region: {
       const region = action.payload;

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { FiltersContext, filtersReducer, types } from "./";
+import { FiltersContext, filtersReducer, types } from "../";
 
 interface Props {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface Props {
 const filtersData = {
   sortOption: 'Population',
   regionOption: [],
-  statusOption: [],
+  statusOption: ['Independent'],
   isOpen: false,
 }
 

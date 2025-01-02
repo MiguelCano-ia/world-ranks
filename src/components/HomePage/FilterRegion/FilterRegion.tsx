@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { REGIONS_OPTIONS } from "./constans";
-import { RegionOptions } from "./RegionOptions";
+import { REGIONS_OPTIONS } from "../../../utilities";
+import { RegionOptions } from "./RegionOption";
 import { FiltersContext } from "../../../context";
 
 export const FilterRegion = () => {
 
-  const { regionOption, handleSelectRegions } = useContext( FiltersContext );  
+  const { regionOption, handleSelectRegions } = useContext( FiltersContext );
 
   return (
     <>
