@@ -1,26 +1,58 @@
-export const CountryDetails = () => {
+import { Currency, Languages } from "../../interfaces/country.interface";
+import { COUNTRY_DETAILS } from "../../utilities";
+
+interface Props {
+  capital: string[];
+  subregion: string;
+  languages: Languages;
+  currencies: { [key: string]: Currency };
+  continents: string[];
+}
+
+export const CountryDetails = ({ capital, subregion, languages, currencies, continents }: Props) => {
+
+  const capitalsNames = () => {
+    if ( !capital ) return '';
+
+    return capital.map( capital => capital ).join(', ');
+  }
+
+  const languagesNames = () => {
+    if ( !languages ) return '';
+
+    return Object.values( languages ).join(', ')
+  }
+  
+  const currencyNames = () => {
+    if ( !currencies ) return '';
+    
+    return Object.entries( currencies as Record<string, { name: string; symbol: string }>)
+      .map(([, details ] ) => details.name)
+      .join(', ');
+  }
+
+  const continentsNames = () => {
+    return continents.map( continent => continent).join(', ');
+  }
+
+  const details = [
+    capitalsNames(),
+    subregion,
+    languagesNames(),
+    currencyNames(),
+    continentsNames()
+  ]
+  
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between p-5 border-secondary-700 border-[1px]" >
-        <p className="font-sans text-secondary-300 font-bold text-body">Capital</p>
-        <p className="font-sans text-secondary-100 font-bold text-body">New Delhi</p>
-      </div>
-      <div className="flex justify-between p-5 border-secondary-700 border-[1px]">
-        <p className="font-sans text-secondary-300 font-bold text-body">Subregion</p>
-        <p className="font-sans text-secondary-100 font-bold text-body">Southern Asia</p>
-      </div>
-      <div className="flex justify-between p-5 border-secondary-700 border-[1px]">
-        <p className="font-sans text-secondary-300 font-bold text-body">Language</p>
-        <p className="font-sans text-secondary-100 font-bold text-body">English, Hindi, Tamil</p>
-      </div>
-      <div className="flex justify-between p-5 border-secondary-700 border-[1px]">
-        <p className="font-sans text-secondary-300 font-bold text-body">Currencies</p>
-        <p className="font-sans text-secondary-100 font-bold text-body">Indian rupee</p>
-      </div>
-      <div className="flex justify-between p-5 border-secondary-700 border-[1px]">
-        <p className="font-sans text-secondary-300 font-bold text-body">Continents</p>
-        <p className="font-sans text-secondary-100 font-bold text-body">Asia</p>
-      </div>
+      {
+        COUNTRY_DETAILS.map( ( detail, index ) => (
+          <div key={ index } className="flex justify-between p-5 border-secondary-700 border-[1px]">
+            <p className="font-sans text-secondary-300 font-bold text-body">{ detail }</p>
+            <p className="font-sans text-secondary-100 font-bold text-body">{ details[ index ] }</p>
+          </div>
+        ))
+      }
     </div>
   )
 }

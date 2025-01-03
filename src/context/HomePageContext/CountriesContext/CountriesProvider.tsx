@@ -8,13 +8,14 @@ interface Props {
 
 export const CountriesProvider = ({ children }: Props) => {
 
-  const [ isLoading, setIsLoading ] = useState( false );
+  const [ isLoading, setIsLoading ] = useState( true );
+  const [ query, setQuery ] = useState( '' )
   const [ countries, setCountries ] = useState<Country[]>( [] );
 
   const lengthCountries = useMemo(() => countries.length, [ countries ]);
 
   return (
-    <CountriesContext.Provider value={{ lengthCountries, isLoading, countries, setCountries, setIsLoading }}>
+    <CountriesContext.Provider value={{ lengthCountries, isLoading, countries, query, setCountries, setIsLoading, setQuery }}>
       { children }
     </CountriesContext.Provider>
   )

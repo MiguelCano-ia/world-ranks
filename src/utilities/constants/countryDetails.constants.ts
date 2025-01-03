@@ -1,0 +1,1 @@
+export const COUNTRY_DETAILS = ['Capital', 'Subregion', 'Language', 'Currencies', 'Continents'];
