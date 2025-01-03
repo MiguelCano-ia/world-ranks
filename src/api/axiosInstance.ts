@@ -8,5 +8,5 @@ export const countriesApi = axios.create({
 });
 
 export const countryApi = axios.create({
-  baseURL: 'https://restcountries.com/v3.1/name',
+  baseURL: 'https://restcountries.com/v3.1/',
 });

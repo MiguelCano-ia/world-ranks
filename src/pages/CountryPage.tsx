@@ -34,7 +34,7 @@ export const CountryPage = () => {
                 <CountryStats population={ country.population } area={ country.area } />
               </div>
               <CountryDetails { ...country } />
-              <NeighbouringCountries />
+              <NeighbouringCountries neighbouringCountries={ country.borders } />
             </div>
           </div>
       }

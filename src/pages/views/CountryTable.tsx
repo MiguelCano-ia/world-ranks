@@ -40,7 +40,7 @@ export const CountryTable = () => {
               THDEAD_NAME.map( thdead =>
                 <th
                   key={ thdead } 
-                  className="pb-4">
+                  className= {`pb-4  ${ thdead === 'Region' && 'max-sm:hidden' } `}>
                     { thdead }
                 </th>
               )
@@ -92,7 +92,7 @@ const SkeletonRow = () => {
       <td className="pt-6">
         <div className="bg-secondary-700 w-32 h-3 rounded-full" />
       </td>
-      <td className="pt-6">
+      <td className="pt-6 ">
         <div className="bg-secondary-700 w-32 h-3 rounded-full" />
       </td>
     </tr>

@@ -23,9 +23,9 @@ export const CountryInfo = ({ flags, name, population, area, region, onCountryNa
         <img src={ flags.svg } alt={ name.common } className="object-cover w-12 h-9 rounded-sm"/>
       </td>
       <td className="pt-6">{ name.common }</td>
-      <td className="pt-6">{ population }</td>
-      <td className="pt-6">{ area }</td>
-      <td className="pt-6">{ region }</td>
+      <td className="pt-6">{ new Intl.NumberFormat().format( population ) }</td>
+      <td className="pt-6">{ new Intl.NumberFormat().format( area ) }</td>
+      <td className="pt-6 max-sm:hidden">{ region }</td>
     </tr>
   )
 }
