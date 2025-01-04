@@ -1,13 +1,15 @@
-import { ChangeEvent, useContext, useRef } from "react"
+import { ChangeEvent, useContext, useEffect, useRef, useState } from "react"
 import { CountriesContext } from "../../../context";
 
 export const SearchBar = () => {
 
   const debounceRef = useRef<NodeJS.Timeout>();
-  const { setQuery } = useContext( CountriesContext );
+  const { query, setQuery } = useContext( CountriesContext );
+  const [ inputValue, setInputValue ] = useState( query );
 
   const onQueryChanged = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    
+    setInputValue(target.value);
+
     if ( debounceRef.current ) {
       clearTimeout( debounceRef.current );
     }
@@ -16,6 +18,10 @@ export const SearchBar = () => {
       setQuery( target.value );
     }, 300 );
   }
+
+  useEffect( () => {
+    setInputValue(query);
+  }, [ query ]);
 
   return (
     <form className="flex items-center bg-secondary-700 rounded-lg p-2 gap-2">
@@ -29,6 +35,7 @@ export const SearchBar = () => {
       <input 
         type="text"
         name="country"
+        value={ inputValue }
         onChange={ onQueryChanged }
         placeholder="Search by Name, Region, Subregion"
         className="bg-inherit text-secondary-100 text-body font-medium font-sans opacity-60 focus:outline-none w-72" 

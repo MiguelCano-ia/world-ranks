@@ -47,9 +47,9 @@ export const CountryDetails = ({ capital, subregion, languages, currencies, cont
     <div className="flex flex-col">
       {
         COUNTRY_DETAILS.map( ( detail, index ) => (
-          <div key={ index } className="flex justify-between p-5 border-secondary-700 border-[1px]">
-            <p className="font-sans text-secondary-300 font-bold text-body">{ detail }</p>
-            <p className="font-sans text-secondary-100 font-bold text-body">{ details[ index ] }</p>
+          <div key={ index } className="flex justify-between p-5 border-secondary-700 border-[1px] max-sm:p-3">
+            <div className="font-sans text-secondary-300 font-bold text-body">{ detail }</div>
+            <div className="font-sans text-secondary-100 font-bold text-body text-right">{ details[ index ] }</div>
           </div>
         ))
       }

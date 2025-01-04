@@ -40,7 +40,7 @@ export const CountryTable = () => {
               THDEAD_NAME.map( thdead =>
                 <th
                   key={ thdead } 
-                  className= {`pb-4  ${ thdead === 'Region' && 'max-sm:hidden' } `}>
+                  className= {`pb-4  ${ thdead === 'Region' && 'max-sm:hidden' } ${ thdead === 'Area(km²)' && 'max-[400px]:hidden'} `}>
                     { thdead }
                 </th>
               )
@@ -65,7 +65,7 @@ export const CountryTable = () => {
           }
         </tbody>
       </table>
-      <div className="flex gap-10 mt-10 justify-center">
+      <div className="flex gap-10 mt-5 justify-center">
         <button type="button" onClick={ prevPage } className="bg-secondary-700 rounded-md" title="Previous Page">
           <img src="../../../public/svg/prev2.svg" alt="Previous" className="p-2 fill-secondary-100"/>
         </button>

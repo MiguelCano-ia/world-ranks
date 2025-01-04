@@ -14,7 +14,7 @@ export const NeighbouringCountry = ({ png, name, onCountryName }: Props) => {
     >
       <img 
         src={ png } alt={ name.common } className="w-20 h-16 object-cover rounded-md" />
-      <p className="font-sans text-secondary-100 font-medium text-caption mt-2">{ name.common }</p>
+      <div className="font-sans text-secondary-100 font-medium text-caption mt-2 w-20">{ name.common }</div>
     </div>  
   )
 }

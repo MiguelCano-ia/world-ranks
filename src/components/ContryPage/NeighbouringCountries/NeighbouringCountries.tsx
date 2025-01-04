@@ -15,7 +15,7 @@ export const NeighbouringCountries = ({ neighbouringCountries }: Props) => {
   
   const getCountries = async () => {
 
-    if ( !neighbouringCountries ) return <div>No neighbouringCountries founded</div>
+    if ( !neighbouringCountries ) return;
 
     const countriesByCode = await getCountriesByCode( neighbouringCountries );
     setCountries( countriesByCode );
@@ -34,14 +34,18 @@ export const NeighbouringCountries = ({ neighbouringCountries }: Props) => {
       <p className="font-sans text-secondary-300 font-semibold text-caption mb-5">Neighbouring Countries</p>
       <div className="flex flex-wrap gap-5">
         {
-          countries.map( country => (
-            <NeighbouringCountry 
-              key={ country.name.common }
-              png={ country.flags.png }
-              name={ country.name }
-              onCountryName={ navigateToCountry }
-            />
-          ))
+          neighbouringCountries 
+            ?
+            countries.map( country => (
+              <NeighbouringCountry 
+                key={ country.name.common }
+                png={ country.flags.png }
+                name={ country.name }
+                onCountryName={ navigateToCountry }
+              />
+            ))
+            :
+            <div className="text-secondary-100 font-sans text-heading-sm font-bold">No countries founded</div>
         }
       </div>
     </div>

@@ -24,7 +24,7 @@ export const CountryInfo = ({ flags, name, population, area, region, onCountryNa
       </td>
       <td className="pt-6">{ name.common }</td>
       <td className="pt-6">{ new Intl.NumberFormat().format( population ) }</td>
-      <td className="pt-6">{ new Intl.NumberFormat().format( area ) }</td>
+      <td className="pt-6 max-[400px]:hidden">{ new Intl.NumberFormat().format( area ) }</td>
       <td className="pt-6 max-sm:hidden">{ region }</td>
     </tr>
   )
